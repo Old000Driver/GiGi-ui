@@ -1,18 +1,16 @@
 import {createApp} from 'vue';
 import App from './App.vue';
-import './index.css';
+import './index.scss';
 import {createWebHashHistory, createRouter} from 'vue-router';
-import GJA from './components/GJA.vue';
-// @ts-ignore
-import GJA2 from './components/GJA2.vue'
-
+import Home from './views/Home.vue'
+import Doc from './views/Doc.vue'
 
 const history = createWebHashHistory();
 const router = createRouter({
   history: history,
   routes: [
-    {path: '/', component: GJA},
-    {path: '/2', component: GJA2}
+    {path: '/', component: Home},
+    {path: '/doc', component: Doc}
 
   ]
 });
