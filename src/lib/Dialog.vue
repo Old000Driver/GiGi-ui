@@ -1,22 +1,24 @@
 <template>
   <template v-if="visible">
-    <div class="gulu-dialog-overlay"
-         @click="onClickOverlay"></div>
-    <div class="gulu-dialog-wrapper">
-      <div class="gulu-dialog">
-        <header>
-          <slot name="title"/>
-          <span @click="close" class="gulu-dialog-close"></span>
-        </header>
-        <main>
-          <slot name="content" />
-        </main>
-        <footer>
-          <Button level="main" @click="ok">OK</Button>
-          <Button @click="cancel">Cancel</Button>
-        </footer>
+    <Teleport to="body">
+      <div class="gulu-dialog-overlay"
+           @click="onClickOverlay"></div>
+      <div class="gulu-dialog-wrapper">
+        <div class="gulu-dialog">
+          <header>
+            <slot name="title"/>
+            <span @click="close" class="gulu-dialog-close"></span>
+          </header>
+          <main>
+            <slot name="content"/>
+          </main>
+          <footer>
+            <Button level="main" @click="ok">OK</Button>
+            <Button @click="cancel">Cancel</Button>
+          </footer>
+        </div>
       </div>
-    </div>
+    </Teleport>
   </template>
 </template>
 <script lang="ts">
@@ -32,11 +34,11 @@ export default {
       type: Boolean,
       default: true
     },
-    ok:{
-      type:Function
+    ok: {
+      type: Function
     },
-    cancel:{
-      type:Function
+    cancel: {
+      type: Function
     }
   },
   components: {
@@ -52,13 +54,13 @@ export default {
       }
     };
     const ok = () => {
-      if (props.ok && props.ok() !== false){
-        close()
+      if (props.ok && props.ok() !== false) {
+        close();
       }
     };
     const cancel = () => {
-      context.emit('cancel')
-      close()
+      context.emit('cancel');
+      close();
     };
 
 
