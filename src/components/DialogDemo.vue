@@ -14,11 +14,14 @@
       <strong>加粗的标题</strong>
     </template>
   </Dialog>
+  <h1>示例2</h1>
+  <Button @click="showDialog">toggle</Button>
 </template>
 <script lang="ts">
 import Dialog from '../lib/Dialog.vue';
 import Button from '../lib/Button.vue';
-import {ref} from 'vue';
+import {h, ref} from 'vue';
+import {openDialog} from '../lib/openDialog.ts';
 
 export default {
   components: {
@@ -31,14 +34,28 @@ export default {
       x.value = !x.value;
     };
     const f1 = () => {
-      return false
+      return false;
     };
     const f2 = () => {};
+    const showDialog = () => {
+      console.log('showDialog:')
+      openDialog({
+        title: h('strong', {}, '标题'),
+        content: '你好',
+        ok() {
+
+        },
+        cancel() {
+          console.log('cancel');
+        }
+      });
+    };
     return {
       x,
       toggle,
       f1,
-      f2
+      f2,
+      showDialog
     };
   }
 };
