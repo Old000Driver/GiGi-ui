@@ -38,7 +38,7 @@ $h2: $h - 4px;
   }
 
   &.gulu-checked {
-    background: lightcoral;
+    background: #13837e;
 
     > span {
       left: calc(100% - #{$h2} - 2px)
