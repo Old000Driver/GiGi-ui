@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="topnav">
+    <router-link to="/" class="topnav">
       <div class="logo">
         <svg class="icon">
           <use xlink:href="#icon-G"></use>
@@ -15,7 +15,7 @@
            class="toggleAside" @click="toggleMenu">
         <use xlink:href="#icon-menu"></use>
       </svg>
-    </div>
+    </router-link>
   </div>
 </template>
 <script lang="ts">
@@ -50,7 +50,7 @@ $color: #007974;
   width: 100%;
   justify-content: center;
   align-items: center;
-  z-index: 10;
+  z-index: 20;
 
   > .logo {
     max-width: 6em;
