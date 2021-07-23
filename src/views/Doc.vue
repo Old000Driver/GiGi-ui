@@ -55,6 +55,7 @@ export default {
 };
 </script>
 <style lang="scss">
+$asideIndex:10;
 .layout {
   display: flex;
   flex-direction: column;
@@ -89,18 +90,20 @@ export default {
 }
 
 aside {
-  background: lightblue;
+  box-shadow: 0 10px 10px #bfbfbf;
+  z-index: $asideIndex;
+  background: #f5f5f5;
   width: 150px;
   padding: 16px 0;
   position: fixed;
-  top: 0;
+  top: 3.2rem;
   left: 0;
-  padding-top: 70px;
   height: 100%;
+  bottom: 0;
 
   > h2 {
     margin-bottom: 4px;
-    padding: 0 16px;
+    padding: 4px 16px;
   }
 
   > ol {

@@ -3,8 +3,8 @@
     <div class="topnavAndBanner">
       <Topnav/>
       <div class="banner">
-        <h1>轮轮UI</h1>
-        <h2>一个牛逼的 UI 框架</h2>
+        <h1>GiGi UI</h1>
+        <h2>好哥哥的 UI 框架</h2>
         <p class="actions">
           <a href="https://github.com">GitHub</a>
           <router-link to="/doc">开始</router-link>
@@ -58,14 +58,23 @@ $color: #007974;
 
 .features {
   margin: 64px auto;
-  width: 400px;
 
   @media(min-width: 800px) {
     width: 800px;
+    > ul {
+      > li {
+        width: 50%;
+      }
+    }
   }
 
   @media(min-width: 1200px) {
     width: 1200px;
+    > ul {
+      > li {
+        width: 33.3333%;
+      }
+    }
   }
 
   > ul {
@@ -73,7 +82,6 @@ $color: #007974;
     flex-wrap: wrap;
 
     > li {
-      width: 400px;
       margin: 16px 0;
       display: grid;
       justify-content: start;

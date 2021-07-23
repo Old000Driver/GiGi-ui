@@ -1,21 +1,20 @@
 <template>
-  <div>
-    <router-link to="/" class="topnav">
-      <div class="logo">
-        <svg class="icon">
-          <use xlink:href="#icon-G"></use>
-        </svg>
-      </div>
-      <ul class="menu">
-        <li>
-          <router-link to="/doc">文档</router-link>
-        </li>
-      </ul>
-      <svg v-if="toggleMenuButtonVisible"
-           class="toggleAside" @click="toggleMenu">
-        <use xlink:href="#icon-menu"></use>
+  <div class="topnav">
+    <router-link to="/" class="logo">
+      <svg class="icon">
+        <use xlink:href="#icon-G"></use>
       </svg>
     </router-link>
+    <ul class="menu">
+      <li>
+        <router-link to="/doc">文档</router-link>
+      </li>
+    </ul>
+    <svg v-if="toggleMenuButtonVisible"
+         class="toggleAside"
+         @click="toggleMenu">
+      <use xlink:href="#icon-menu"></use>
+    </svg>
   </div>
 </template>
 <script lang="ts">
@@ -33,7 +32,9 @@ export default {
     const togglemenu = () => {
       menuVisible.value = !menuVisible.value;
     };
-    return {toggleMenu: togglemenu};
+    return {
+      toggleMenu: togglemenu,
+    };
   }
 };
 </script>
@@ -41,6 +42,7 @@ export default {
 $color: #007974;
 
 .topnav {
+  background-color: white;
   color: $color;
   display: flex;
   padding: 16px;
@@ -51,6 +53,8 @@ $color: #007974;
   justify-content: center;
   align-items: center;
   z-index: 20;
+  box-shadow: 0 3px 3px #34a7a1;
+  height: 3rem;
 
   > .logo {
     max-width: 6em;

@@ -4,20 +4,22 @@
     <div class="demo-component">
       <component :is="component"/>
     </div>
-    <div class="demo-actions">
+    <div class="demo-actions" v-if="codeVisible">
+      <Button @click="toggleCode">隐藏代码</Button>
+    </div>
+    <div class="demo-actions" v-else>
       <Button @click="toggleCode">查看代码</Button>
     </div>
     <div class="demo-code" v-if="codeVisible">
       <pre class="language-html" v-html="Prism.highlight(component.__sourceCode, Prism.languages.html, 'html')"/>
     </div>
-
   </div>
 </template>
 
 <script lang="ts">
 import Button from '../lib/Button.vue';
 import 'prismjs';
-import 'prismjs/themes/prism.css';
+import 'prismjs/themes/prism-okaidia.css';
 import {
   computed,
   ref,

@@ -4,4 +4,9 @@ declare module '*.vue' {
   export default componentOptions;
 }
 
+declare module '*.md'{
+  const str:string
+  export default str
+}
+
 // 让 ts 理解 vue

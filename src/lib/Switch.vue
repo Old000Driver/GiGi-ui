@@ -1,5 +1,8 @@
 <template>
-  <button class="gulu-switch" @click="toggle" :class="{'gulu-checked':value}"><span></span></button>
+  <button class="gulu-switch" @click="toggle"
+          :class="{'gulu-checked':value}">
+    <span></span>
+  </button>
 </template>
 <script lang="ts">
 
@@ -38,7 +41,7 @@ $h2: $h - 4px;
   }
 
   &.gulu-checked {
-    background: #13837e;
+    background: #34a7a1;
 
     > span {
       left: calc(100% - #{$h2} - 2px)
