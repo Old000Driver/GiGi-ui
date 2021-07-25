@@ -3,7 +3,7 @@
     <div class="topnavAndBanner">
       <Topnav/>
       <div class="banner">
-        <h1>GiGi mini UI</h1>
+        <h1>GiGi UI</h1>
         <h2>够 mini 的 UI 框架</h2>
         <p class="actions">
           <a href="https://github.com/Old000Driver/GiGi-ui">GitHub</a>
