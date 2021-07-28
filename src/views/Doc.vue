@@ -1,40 +1,32 @@
 <template>
-  <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.min.css"
-      rel="stylesheet"
-      type="text/css"
-  />
   <div class="layout">
     <Topnav :toggle-menu-button-visible="true" class="nav"/>
     <div class="content">
-      <transition name="fade"
-                  enter-active-class="animate__animated animate__fadeInLeft"
-                  leave-active-class="animate__animated animate__fadeOutLeft"
-      >
+      <transition name="fade" mode="out-in">
         <aside v-if="menuVisible">
           <h2>文档</h2>
           <ol>
-            <li>
+            <li >
               <router-link to="/doc/Intro">介绍
               </router-link>
             </li>
-            <li>
+            <li >
               <router-link to="/doc/install">安装
               </router-link>
             </li>
-            <li>
+            <li >
               <router-link to="/doc/get-started">开始使用
               </router-link>
             </li>
-            <li>
+            <li >
               <router-link to="/doc/switch">Switch 组件
               </router-link>
             </li>
-            <li>
+            <li >
               <router-link to="/doc/button">Button 组件
               </router-link>
             </li>
-            <li>
+            <li >
               <router-link to="/doc/dialog">Dialog 组件
               </router-link>
             </li>
@@ -67,6 +59,8 @@ export default {
 
 <style lang="scss">
 $asideIndex: 10;
+
+
 .layout {
   display: flex;
   flex-direction: column;
@@ -82,7 +76,6 @@ $asideIndex: 10;
     padding-left: 156px;
     @media (max-width: 500px) {
       padding-left: 0;
-      transition: 1s;
     }
   }
 }
@@ -133,6 +126,27 @@ aside {
     }
   }
 }
+
+.fade-enter-from{
+  transform: translateX(-150px);
+}
+
+.fade-enter-active, {
+  transition:ease-in-out 0.25s;
+
+}
+
+.fade-enter-to {
+  transform: translateX(0);
+}
+.fade-leave-active {
+  transition: ease-in-out 0.25s;
+}
+
+.fade-leave-to {
+  transform: translateX(-150px);
+}
+
 
 main {
   overflow: auto;
