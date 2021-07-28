@@ -1,40 +1,50 @@
 <template>
+  <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.min.css"
+      rel="stylesheet"
+      type="text/css"
+  />
   <div class="layout">
     <Topnav :toggle-menu-button-visible="true" class="nav"/>
     <div class="content">
-      <aside v-if="menuVisible">
-        <h2>文档</h2>
-        <ol>
-          <li>
-            <router-link to="/doc/Intro">介绍
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/doc/install">安装
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/doc/get-started">开始使用
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/doc/switch">Switch 组件
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/doc/button">Button 组件
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/doc/dialog">Dialog 组件
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/doc/tabs">Tabs 组件
-            </router-link>
-          </li>
-        </ol>
-      </aside>
+      <transition name="fade"
+                  enter-active-class="animate__animated animate__fadeInLeft"
+                  leave-active-class="animate__animated animate__fadeOutLeft"
+      >
+        <aside v-if="menuVisible">
+          <h2>文档</h2>
+          <ol>
+            <li>
+              <router-link to="/doc/Intro">介绍
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/doc/install">安装
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/doc/get-started">开始使用
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/doc/switch">Switch 组件
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/doc/button">Button 组件
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/doc/dialog">Dialog 组件
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/doc/tabs">Tabs 组件
+              </router-link>
+            </li>
+          </ol>
+        </aside>
+      </transition>
       <main>
         <router-view></router-view>
       </main>
@@ -54,8 +64,9 @@ export default {
   }
 };
 </script>
+
 <style lang="scss">
-$asideIndex:10;
+$asideIndex: 10;
 .layout {
   display: flex;
   flex-direction: column;
@@ -71,6 +82,7 @@ $asideIndex:10;
     padding-left: 156px;
     @media (max-width: 500px) {
       padding-left: 0;
+      transition: 1s;
     }
   }
 }
@@ -88,6 +100,7 @@ $asideIndex:10;
     background: white;
   }
 }
+
 
 aside {
   box-shadow: 0 10px 10px #bfbfbf;
